@@ -1,0 +1,4 @@
+/workspaces/ProcessamentoDeArquivosgRPC/server_cpp/build/CMakeFiles/proto_lib.dir
+/workspaces/ProcessamentoDeArquivosgRPC/server_cpp/build/CMakeFiles/server.dir
+/workspaces/ProcessamentoDeArquivosgRPC/server_cpp/build/CMakeFiles/edit_cache.dir
+/workspaces/ProcessamentoDeArquivosgRPC/server_cpp/build/CMakeFiles/rebuild_cache.dir

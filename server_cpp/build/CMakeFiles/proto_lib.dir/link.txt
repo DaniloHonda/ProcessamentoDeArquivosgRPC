@@ -1,0 +1,2 @@
+/usr/bin/ar qc libproto_lib.a CMakeFiles/proto_lib.dir/file_processor.pb.cc.o CMakeFiles/proto_lib.dir/file_processor.grpc.pb.cc.o
+/usr/bin/ranlib libproto_lib.a
