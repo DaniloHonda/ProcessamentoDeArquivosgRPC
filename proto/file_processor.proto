@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package file_processor;
+
+service FileProcessorService {
+  // Envia um arquivo via streaming e recebe o arquivo processado de volta via streaming
+  rpc CompressPDF(stream FileChunk) returns (stream FileChunk);
+  rpc ConvertToTXT(stream FileChunk) returns (stream FileChunk);
+  rpc ConvertImageFormat(stream ConvertImageRequest) returns (stream FileChunk);
+  rpc ResizeImage(stream ResizeImageRequest) returns (stream FileChunk);
+}
+
+// Mensagem para transferir pedaços de arquivos
+message FileChunk {
+  bytes content = 1;
+}
+
+// Mensagem para requisição de conversão de imagem
+message ConvertImageRequest {
+  oneof request {
+    string output_format = 1; // Primeiro chunk contém o formato
+    bytes content = 2;       // Chunks subsequentes contêm o conteúdo do arquivo
+  }
+}
+
+// Mensagem para requisição de redimensionamento de imagem
+message ResizeImageRequest {
+  oneof request {
+    Dimensions dimensions = 1; // Primeiro chunk contém as dimensões
+    bytes content = 2;        // Chunks subsequentes contêm o conteúdo do arquivo
+  }
+}
+
+message Dimensions {
+  int32 width = 1;
+  int32 height = 2;
+}
